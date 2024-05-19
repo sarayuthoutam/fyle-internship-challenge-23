@@ -1,0 +1,32 @@
+/* src/app/repo-list/repo-list.component.css */
+.repo-list {
+    margin-top: 1rem;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.topics,
+.languages {
+    margin-top: 0.5rem;
+}
+
+.topic,
+.language {
+    display: inline-block;
+    background-color: #e2e8f0;
+    color: #2d3748;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+}
