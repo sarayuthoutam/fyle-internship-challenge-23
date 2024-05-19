@@ -1,0 +1,13 @@
+<!-- src/app/repo-list/repo-list.component.html -->
+<div class="repo-list mt-4">
+    <h3 class="font-bold text-lg mb-2">Repositories:</h3>
+    <ul>
+        <li *ngFor="let repo of repos" class="mb-4 p-4 border border-gray-200 rounded">
+            <a [href]="repo.html_url" target="_blank" class="text-blue-500 hover:underline">{{ repo.name }}</a>
+            <div *ngIf="repo.topics && repo.topics.length > 0" class="topics mt-2">
+                <span *ngFor="let topic of repo.topics"
+                    class="topic bg-gray-200 text-gray-800 px-2 py-1 rounded mr-2">{{ topic }}</span>
+            </div>
+        </li>
+    </ul>
+</div>

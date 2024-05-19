@@ -1,0 +1,30 @@
+<!-- src/app/search/search.component.html -->
+<div class="flex flex-col items-center p-4">
+    <div class="flex items-center space-x-2">
+        <input [(ngModel)]="username" placeholder="Enter GitHub username" class="p-2 border border-gray-400 rounded" />
+        <button (click)="search()" class="ml-2 p-2 bg-blue-500 text-white rounded">Search</button>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message mt-4 text-red-500">{{ errorMessage }}</div>
+
+    <div *ngIf="repos.length > 0" class="mt-4">
+        <div class="pagination-controls mb-4">
+            <label for="perPage">Repos per page:</label>
+            <select id="perPage" (change)="onPerPageChange($event)" class="ml-2 p-2 border border-gray-400 rounded">
+                <option *ngFor="let size of [10, 20, 50, 100]" [value]="size">{{ size }}</option>
+            </select>
+        </div>
+
+        <app-repo-list [repos]="repos"></app-repo-list>
+
+        <div class="pagination-buttons mt-4 flex space-x-2">
+            <button *ngFor="let page of getPageNumbers()" (click)="onPageChange(page)"
+                [class.bg-blue-500]="page === this.page" [class.text-white]="page === this.page"
+                class="p-2 border border-gray-400 rounded">
+                {{ page }}
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="repos.length === 0 && !errorMessage" class="zero-state mt-4">No repositories found.</div>
+</div>

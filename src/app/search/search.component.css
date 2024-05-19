@@ -1,0 +1,8 @@
+/* src/app/search/search.component.css */
+.error-message {
+    color: #f56565;
+}
+
+.zero-state {
+    text-align: center;
+}
